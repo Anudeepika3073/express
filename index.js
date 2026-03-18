@@ -7,11 +7,14 @@
  */
 
 'use strict';
-var x = 10   // ❌ no semicolon + var usage
+var a = 10  
 
-console.log(x) // ❌ console usage + missing semicolon
-
-function test(){
-    let y = 5
+function test() {
+    let x = 5   
 }
+
+if (a == 10) {
+  console.log("Hello")
+}
+
 module.exports = require('./lib/express');
