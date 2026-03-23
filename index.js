@@ -7,5 +7,12 @@
  */
 
 'use strict';
+var x = 10   // ❌ unused variable (no-unused-vars)
+var y = 20   // ❌ no semicolon + unused
+
+if (x == y) {   // ❌ eqeqeq rule violation
+  console.log("Equal")    
+}
+
 
 module.exports = require('./lib/express');
