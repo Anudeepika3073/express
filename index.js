@@ -7,12 +7,22 @@
  */
 
 'use strict';
-var x = 10   // ❌ unused variable (no-unused-vars)
-var y = 20   // ❌ no semicolon + unused
-
-if (x == y) {   // ❌ eqeqeq rule violation
-  console.log("Equal")    
+// ❌ BUG: possible runtime error
+function getUserName(user) {
+  return user.name.toUpperCase();   // if user = null → crash
 }
+
+// ❌ VULNERABILITY: use of eval (security risk)
+function runCode(input) {
+  eval(input);   // Sonar will flag this
+}
+
+// trigger bug
+getUserName(null);
+
+// trigger vulnerability
+runCode("console.log('Hello')");
+
 
 
 module.exports = require('./lib/express');
