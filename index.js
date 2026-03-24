@@ -23,6 +23,13 @@ getUserName(null);
 // trigger vulnerability
 runCode("console.log('Hello')");
 
+function test(a, b) {
+  var x = 5      // missing semicolon
+  console.log(x)
+}
+
+eval("console.log('bad')")
+
 
 
 module.exports = require('./lib/express');
