@@ -9,8 +9,9 @@ eslintReport.forEach(file => {
     sonarIssues.push({
       engineId: "eslint",
       ruleId: msg.ruleId,
-      type: "CODE_SMELL",
       severity: msg.severity === 2 ? "MAJOR" : "MINOR",
+      type: "CODE_SMELL",
+      tags: ["eslint"],   // ← THIS LINE WAS MISSING IN YOUR OUTPUT
       primaryLocation: {
         message: msg.message,
         filePath: file.filePath,
@@ -18,8 +19,7 @@ eslintReport.forEach(file => {
           startLine: msg.line,
           endLine: msg.endLine || msg.line
         }
-      },
-      tags: ["eslint"]
+      }
     });
   });
 });
